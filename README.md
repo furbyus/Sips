@@ -27,5 +27,5 @@ return [
 ```
 Then, you can overwrite the default values or simply define an environment var in .env file like this:
 
-SIPS_NEMON_TOKEN='jklmn'
-SIPS_NEMON_ENDPOINT='https://another.endpoint.to.connect.nemon.com/api/'
++ SIPS_NEMON_TOKEN='jklmn'
++ SIPS_NEMON_ENDPOINT='https://another.endpoint.to.connect.nemon.com/api/'
