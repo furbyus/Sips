@@ -1,0 +1,52 @@
+{
+    "name": "furbyus/sips",
+    "type": "library",
+    "description": "Information gathering and adapter from various providers",
+    "version": "1.0.0-dev",
+    "keywords": [
+        "furbyus",
+        "sips",
+        "provider",
+        "web service",
+        "request",
+        "gather"
+    ],
+    "homepage": "https://github.com/furbyus/Sips",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francesc Aguilar",
+            "email": "furbyus@gmail.com",
+            "homepage": "https://github.com/furbyus"
+        }
+    ],
+    "require": {
+        
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.3"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Furbyus\\Sips\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Furbyus\\Sips\\LaravelServiceProvider"
+            ],
+            "aliases": {}
+        }, 
+        "branch-alias": {
+            "dev-master": "1.0.0.0-dev"
+        }
+        
+    }
+}
