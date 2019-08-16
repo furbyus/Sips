@@ -7,7 +7,7 @@ This package needs an authorisation information like secret keys and/or user tok
 
 To make it work with Laravel, you may publish the config file "php artisan vendor:publish". This config file will be in the path "config/sips.php" and will has the format below:
 
-´´´PHP
+```PHP
 <?php
 
 return [
@@ -24,7 +24,7 @@ return [
         ],
     ]
 ];
-´´´
+```
 Then, you can overwrite the default values or simply define an environment var in .env file like this:
 
 SIPS_NEMON_TOKEN='jklmn'
