@@ -8,10 +8,15 @@ trait ReadOnly
     { //Metodo para cojer las variables mediante $suministro->variable
         if (isset($this->{"_$name"})) {
             $requested = $this->{"_$name"};
-
         } else {
-            return false;
+            if(isset($this->{"$name"})){
+                $requested = $this->{"$name"};
+            }else{
+                return false;
+            }
+            
         }
+        return $requested;
     }
 
     public function __set($k, $v)
