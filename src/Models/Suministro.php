@@ -183,12 +183,12 @@ class Suministro implements iSuministro {
                     $toret->TotalesReactiva = $reac->totales;
                     $toret->TotalesMaximetro = $pot->totales;
                 } else {
-                    
+                    //TODO GAS
                 }
 
                 break;
             case 'Nemon':
-                $toret->suministro = $datos;
+                $toret->suministro = $datos->getReflectedObject();
 
                 break;
             default:

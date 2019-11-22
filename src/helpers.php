@@ -47,6 +47,9 @@ if (!function_exists('d')) {
 if (!function_exists('furSips')) {
     function furSips($cups = null, $config = null, $logChannel = null)
     {
+        if(is_null($config) && defined('config')){
+            $config = config('sips');
+        }
         return new SipsProvider($cups, $config, $logChannel);
     }
 }
