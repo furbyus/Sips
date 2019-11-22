@@ -2,7 +2,6 @@
     "name": "furbyus/sips",
     "type": "library",
     "description": "Information gathering and adapter from various providers",
-    "version": "1.0.2-dev",
     "keywords": [
         "furbyus",
         "sips",
