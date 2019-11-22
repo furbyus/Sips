@@ -1,5 +1,5 @@
 <?php
-include '../vendor/autoload.php';
+include '../../vendor/autoload.php';
 use Furbyus\Sips\SipsProvider;
 
 /*
@@ -7,12 +7,13 @@ use Furbyus\Sips\SipsProvider;
  *
  */
 $cups_id = (isset($_REQUEST['cups']) && !empty($_REQUEST['cups'])) ? $_REQUEST['cups'] : null;
+$nemon_token = (isset($_REQUEST['token']) && !empty($_REQUEST['token'])) ? $_REQUEST['token'] : null;
 $config = [
     'Nemon' => [
-        'token' => 'abcdefghi',
-        'endpoint' => 'https://endpoint.to.connect.nemon.com/api/',
+        'token' => $nemon_token,
+        'endpoint' => 'https://url.to.nemon.example',
     ],
-    'Nabalia' => [
+    'other_source' => [
         'procedencia' => "abcdefghi",
         'endpoint' => "",
         'secret' => "",

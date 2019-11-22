@@ -8,7 +8,7 @@ return [
         ],
         'Nabalia' => [
             'procedencia' => env('SIPS_NABALIA_TOKEN',"abcdefghi"),
-            'endpoint' => env('SIPS_NABALIA_ENDPOINT','https://endpoint.to.connect.nemon.com/api/'),
+            'endpoint' => env('SIPS_NABALIA_ENDPOINT','https://endpoint.to.connect.nabalia.com/api/'),
             'secret' => env('SIPS_NABALIA_SECRET','secret'),
             'salt' => env('SIPS_NABALIA_SALT','yourSalt'),
         ],
