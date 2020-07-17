@@ -21,20 +21,6 @@ $config = [
     ],
 ];
 
-$config = [
-    'Nemon' => [
-        'token' => '594c1a7c55295b19f514b65b6570249542c5c3e9',
-        'endpoint' => 'https://unielectrica-sips.nemon2ib.com/api/',
-    ],
-    'Nabalia' => [
-        'procedencia' => "hAluoxjXvnn1",
-        'endpoint' => "https://tramitacion.nabaliaenergia.com/app.aspx",
-        'secret' => "29875Cny76uHh09",
-        'salt' => "Ivan Medvedev",
-    ],
-];
-$cups_id = 'ES0021000000000001RK';
-
 /*
  *   OOPhp example instantiation:
  */
