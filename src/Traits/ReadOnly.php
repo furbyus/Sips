@@ -7,14 +7,14 @@ trait ReadOnly
     public function __get($name)
     { //Metodo para cojer las variables mediante $suministro->variable
         if (isset($this->{"_$name"})) {
-            $requested = $this->{"_$name"};
+            $requested = $this->getReflectedProperty("_$name", $this);
         } else {
-            if(isset($this->{"$name"})){
-                $requested = $this->{"$name"};
-            }else{
+            if (isset($this->{"$name"})) {
+                $requested = $this->getReflectedProperty("$name", $this);
+            } else {
                 return false;
             }
-            
+
         }
         return $requested;
     }
@@ -37,7 +37,7 @@ trait ReadOnly
         $reflected = new \stdClass();
 
         foreach ($this as $key => $value) {
-            $reflected->{$key} = $this->getReflectedProperty($key,$this);
+            $reflected->{$key} = $this->getReflectedProperty($key, $this);
         }
         return $reflected;
     }

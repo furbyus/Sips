@@ -8,7 +8,6 @@ namespace Furbyus\Sips\Traits;
  * @author Francesc Aguilar Martinez
  */
 Trait SipsMaps {
-
     protected $_mapNabalia = [
         'energyType' => 'energyType',
         'fuente' => 'fuente',

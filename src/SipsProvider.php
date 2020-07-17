@@ -6,6 +6,7 @@ use Furbyus\Sips\Interfaces\iSipsProvider;
 use Furbyus\Sips\Lib\AES;
 use Furbyus\Sips\Models\SuministroNabalia;
 use Furbyus\Sips\Models\SuministroNemon;
+
 //this has to be changed because it uses mcrypt library which is deprecated in php > 7.0
 
 /**
@@ -78,7 +79,7 @@ class SipsProvider implements iSipsProvider
     {
         $fuente = strtoupper(substr($fuente, 0, 1)) . strtolower(substr($fuente, 1)); //Por si queremos pasar el nombre sin la primera en mayúsculas (nemon===Nemon===NEMON y al revés)
         if (in_array($fuente, $this->_fuentesDisponibles)) { //Queremos añadir una fuente de datos permitida
-            if (!in_aray($fuente, $this->_fuentesHabilitadas)) {
+            if (!in_array($fuente, $this->_fuentesHabilitadas)) {
                 $this->_fuentesHabilitadas = array_merge($this->_fuentesHabilitadas, $fuente);
             }
             return true; //Ya existe, o ya se ha añadido la fuente
@@ -137,10 +138,11 @@ class SipsProvider implements iSipsProvider
         }
         foreach ($this->_prioridadFuentes as $fix) {
             if (!isset($this->_fuentesHabilitadas[$fix])) {
-                return false;
+                continue;
             }
             $this->log('Requesting data from ' . $this->_fuentesHabilitadas[$fix]);
             $success = $this->{"_requestData" . $this->_fuentesHabilitadas[$fix]}();
+            $this->log('Success= '.$success);
             if ($this->_combinarFuentes) {
                 //TODO hacer el continue y combinar resultados...
             } else {
@@ -154,16 +156,8 @@ class SipsProvider implements iSipsProvider
         return false;
     }
 
-    public function getData($format = '')
+    public function getData($format = 'Default')
     {
-        $actual = isset($this->_suministro) ? $this->_suministro : false;
-        if (!$actual) {
-
-        }
-        $this->log($actual->format('Default'));
-        if ($format === '') {
-            return $actual;
-        }
         $formatted = isset($this->_suministro) ? $this->_suministro->format($format) : false;
         $this->log("Returning data as $format object format...");
         $this->log($formatted);
@@ -261,7 +255,7 @@ class SipsProvider implements iSipsProvider
 
     private function _decryptNabalia($data)
     {
-        return false;//in progress
+        return false; //in progress
         $secret = $this->sipsConfig['Nabalia']['secret'];
         $salt = $this->sipsConfig['Nabalia']['salt'];
         $keysize = 32;
@@ -274,7 +268,7 @@ class SipsProvider implements iSipsProvider
         $data = substr($raw, $iv_size);
         d($data);
         $decrypted = openssl_decrypt(\base64_decode($data), 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $iv);
-        d();
+        d('');
 
     }
 
